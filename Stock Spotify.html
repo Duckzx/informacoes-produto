@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Produto</title>
+    <style>
+        :root {
+            --background-light: #ffffff;
+            --text-light: #000000;
+            --accent-light: #f4f4f4;
+
+            --background-dark: #1e1e1e;
+            --text-dark: #ffffff;
+            --accent-dark: #333333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid var(--accent-light);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--accent-light);
+        }
+
+        td[contenteditable="true"] {
+            background-color: var(--background-light);
+            cursor: text;
+        }
+
+        body.theme-dark {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        body.theme-dark th, body.theme-dark td {
+            border: 1px solid var(--accent-dark);
+        }
+
+        body.theme-dark th {
+            background-color: var(--accent-dark);
+        }
+
+        body.theme-dark td[contenteditable="true"] {
+            background-color: var(--accent-dark);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--accent-light);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.theme-dark .theme-toggle {
+            border-color: var(--accent-dark);
+        }
+
+        .collapsible {
+            background-color: var(--accent-light);
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .collapsible.active, .collapsible:hover {
+            background-color: var(--accent-dark);
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: var(--background-light);
+            transition: max-height 0.3s;
+        }
+
+        body.theme-dark .collapsible {
+            background-color: var(--accent-dark);
+            color: var(--text-dark);
+        }
+
+        body.theme-dark .content {
+            background-color: var(--background-dark);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Alternar Tema</button>
+    <h1>Informações do Produto</h1>
+
+    <button type="button" class="collapsible">Detalhes do Produto</button>
+    <div class="content">
+        <table>
+            <tr>
+                <td>Nome do Produto</td>
+                <td contenteditable="true">Spotify</td>
+            </tr>
+            <tr>
+                <td>Preço de Compra</td>
+                <td contenteditable="true">R$ 50,00</td>
+            </tr>
+            <tr>
+                <td>Margem de Lucro</td>
+                <td contenteditable="true">200%</td>
+            </tr>
+            <tr>
+                <td>Preço de Venda</td>
+                <td contenteditable="true">R$ 100,00</td>
+            </tr>
+            <tr>
+                <td>Descrição</td>
+                <td contenteditable="true">
+                    Spotify: A Melhor Experiência Musical<br>
+                    Descubra, ouça e compartilhe milhões de músicas e podcasts com o Spotify, o maior serviço de streaming de áudio do mundo.<br>
+                    - Biblioteca Imensa: Acesso ilimitado a músicas, playlists personalizadas e podcasts exclusivos.<br>
+                    - Experiência Personalizada: Receba recomendações baseadas no seu gosto.<br>
+                    - Ouça Offline: Baixe suas músicas favoritas e ouça sem conexão.<br>
+                    - Sem Anúncios: Desfrute de som ininterrupto com a versão Premium.<br>
+                    Transforme seu dia com a trilha sonora perfeita. 🎵
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <button type="button" class="collapsible">Fornecedores</button>
+    <div class="content">
+        <table>
+            <tr>
+                <td>Fornecedor 1</td>
+                <td contenteditable="true">Fornecedor ABC</td>
+            </tr>
+            <tr>
+                <td>Contato Fornecedor 1</td>
+                <td contenteditable="true">email@fornecedorabc.com</td>
+            </tr>
+            <tr>
+                <td>Prazo de Entrega 1</td>
+                <td contenteditable="true">7 dias úteis</td>
+            </tr>
+            <tr>
+                <td>Fornecedor 2</td>
+                <td contenteditable="true">Fornecedor XYZ</td>
+            </tr>
+            <tr>
+                <td>Contato Fornecedor 2</td>
+                <td contenteditable="true">contato@fornecedorxyz.com</td>
+            </tr>
+            <tr>
+                <td>Prazo de Entrega 2</td>
+                <td contenteditable="true">10 dias úteis</td>
+            </tr>
+            <tr>
+                <td>Fornecedor 3</td>
+                <td contenteditable="true">Fornecedor DEF</td>
+            </tr>
+            <tr>
+                <td>Contato Fornecedor 3</td>
+                <td contenteditable="true">suporte@fornecedordef.com</td>
+            </tr>
+            <tr>
+                <td>Prazo de Entrega 3</td>
+                <td contenteditable="true">5 dias úteis</td>
+            </tr>
+        </table>
+    </div>
+
+    <button type="button" class="collapsible">Planos</button>
+    <div class="content">
+        <table>
+            <tr>
+                <td>Planos Disponíveis</td>
+                <td contenteditable="true">Vitalício, 1 mês, 3 meses, 1 ano</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('theme-dark');
+        }
+
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach((collapsible) => {
+            collapsible.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
