@@ -1,0 +1,16 @@
+<script>
+    // Salvar o arquivo atualizado
+    function salvarArquivo() {
+        const conteudo = document.documentElement.outerHTML; // Pega o conteúdo completo do HTML
+        const blob = new Blob([conteudo], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "informacoes_produto.html"; // Nome do arquivo para download
+        link.click();
+        URL.revokeObjectURL(url);
+        alert("Arquivo salvo com sucesso!");
+    }
+</script>
+
+<button onclick="salvarArquivo()">Salvar Arquivo</button>
